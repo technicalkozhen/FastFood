@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\publicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('UiProject');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/' , [publicController::class ,'index'])->name('public');
+    
 });
+
+
 
 Auth::routes();
 
