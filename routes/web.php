@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\public\product;
 use App\Http\Controllers\publicController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/' , [publicController::class ,'index'])->name('public');
+    Route::resource('public/product', product::class)->except('show');
+
+
     
 });
 

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('number_receipt');
-            $table->string('number_table');
+            $table->string('number_table')->default(0);
+            $table->boolean('state')->default(0);
             $table->timestamps();
         });
     }

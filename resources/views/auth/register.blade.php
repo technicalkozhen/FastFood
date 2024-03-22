@@ -31,7 +31,7 @@
             </div>
             <div class="">
                 <p class="text-right">وشەی نهێنی</p>
-                <input type="text" name="password" class="border-b-2 bg-transparent focus:outline-none" placeholder="********">
+                <input type="password" name="password" class="border-b-2 bg-transparent focus:outline-none" placeholder="********">
                 @error('password')
                     <p class="text-red-400 text-sm mx-1">
                         <strong>{{ $message }}</strong>
@@ -40,7 +40,7 @@
             </div>
             <div class="">
                 <p class="text-right">دوبارەکردنەوەی وشەی نهێنی</p>
-                <input type="text" name="password_confirmation" class="border-b-2 bg-transparent focus:outline-none" placeholder="********">
+                <input type="password" name="password_confirmation" class="border-b-2 bg-transparent focus:outline-none" placeholder="********">
             </div>
             <button class="bg-white text-black rounded p-2 ">تۆمارکردن</button>
         </form>

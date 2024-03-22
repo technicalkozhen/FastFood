@@ -22,7 +22,7 @@
             </div>
             <div>
                 <p class="text-right">وشەی نهێنی</p>
-                <input type="text" name="password" class="border-b-2 bg-transparent focus:outline-none" placeholder="********">
+                <input type="password" name="password" class="border-b-2 bg-transparent focus:outline-none" placeholder="********">
                 @error('password')
                     <p class="text-red-400 text-sm mx-1">
                         <strong>{{ $message }}</strong>

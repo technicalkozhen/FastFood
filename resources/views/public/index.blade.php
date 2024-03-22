@@ -1,59 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fastfood</title>
-    @vite('resources/css/app.css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body dir="rtl">
-      <div class="flex items-center justify-between bg-blue-300 p-3">
-        <div class="space-x-5 rtl:space-x-reverse">
-            <a href="" class="bg-white p-1 rounded pb-2">تۆمارکردن</a>
-            <a href="">چاپکردن</a>
-            <a href="">سڕینەوەی پسوڵە</a>
-            <a href="">ڕاپۆرتی ئەمڕۆ</a>
-            <a href="">لیستی موادەکان</a>
-            <a href="">باقی دانەوە</a>
-        </div>
-        <div>
-            <i class="fa-solid fa-user text-xl"></i>
-        </div>
-      </div>
+@extends('layouts.public')
+
+@section('content')
+      
       <div class="flex items-center justify-between">
         <div class="basis-6/12 grid grid-cols-4 gap-2 m-2">
-            <div class="border-2 text-center p-1">
-                <p>پیزای مریشک</p>
-                <img src="chicken pizza.jpg" class="w-24 h-24 text-center mx-auto">
-                <p class="bg-yellow-300 rounded w-10/12 mx-auto">5000</p>
-            </div>
-            <div class="border-2 text-center p-1">
-                <p>پیزای گۆشت</p>
-                <img src="meat pizza.jpg" class="w-24 h-24 text-center mx-auto">
-                <p class="bg-yellow-300 rounded w-10/12 mx-auto">6000</p>
-            </div>
-            <div class="border-2 text-center p-1">
-                <p>شاورمەیی گۆشت</p>
-                <img src="meat shawrma.jpg" class="w-24 h-24 text-center mx-auto">
-                <p class="bg-yellow-300 rounded w-10/12 mx-auto">2000</p>
-            </div>
-            <div class="border-2 text-center p-1">
-                <p>شاورمەیی مریشک</p>
-                <img src="chiken shawrma.jpg" class="w-24 h-24 text-center mx-auto">
-                <p class="bg-yellow-300 rounded w-10/12 mx-auto">1500</p>
-            </div>
-            <div class="border-2 text-center p-1">
-                <p>بەرگری مریشک</p>
-                <img src="chicken burger.jpg" class="w-24 h-24 text-center mx-auto">
-                <p class="bg-yellow-300 rounded w-10/12 mx-auto">300</p>
-            </div>
-            <div class="border-2 text-center p-1">
-                <p>بەرگری گۆشت</p>
-                <img src="meat burger.png" class="w-24 h-24 text-center mx-auto">
-                <p class="bg-yellow-300 rounded w-10/12 mx-auto">300</p>
-            </div>
+            @foreach ($product as $pro)
+                <div class="border-2 text-center p-1">
+                    <p>{{$pro->name}}</p>
+                    <img src="{{asset('products/'.$pro->image.'')}}" class="w-24 h-24 text-center mx-auto">
+                    <p class="bg-yellow-300 rounded w-10/12 mx-auto">5000</p>
+                </div>
+            @endforeach
         </div>
         <div class="basis-5/12 m-2 ">
             <div class="relative overflow-x-auto">
@@ -144,5 +101,4 @@
             <input type="text" class="border-2">
         </div>
       </div>
-</body>
-</html>
+@endsection

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\product;
 use Illuminate\Http\Request;
 
 class publicController extends Controller
 {
     public function index(){
-        return view('UiProject');
+        $product=product::all();
+        return view('public.index',compact('product'));
     }
 }
