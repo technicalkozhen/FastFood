@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class transaction extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'post_id',
+        'number_receipt',
+        'number_table',
+        'state',
+    ];
 }

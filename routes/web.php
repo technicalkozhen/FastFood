@@ -17,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/' , [publicController::class ,'index'])->name('public');
+    Route::get('addProductToTable/{id}' , [publicController::class ,'addProductToTable'])->name('addProductToTable');
+    Route::get('deleteProductToTable/{id}' , [publicController::class ,'deleteProductToTable'])->name('deleteProductToTable');
+    Route::get('increaceNumberQuantity/{id}' , [publicController::class ,'increaceNumberQuantity'])->name('increaceNumberQuantity');
+    Route::get('decreaceNumberQuantity/{id}' , [publicController::class ,'decreaceNumberQuantity'])->name('decreaceNumberQuantity');
+
+
+
     Route::resource('public/product', product::class)->except('show');
 
 
