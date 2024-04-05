@@ -15,9 +15,4 @@ class product extends Model
         'image',
     ];
 
-    
-    public function tableproducts()
-    {
-        return $this->belongsTo(table_product::class, 'product_id','id');
-    }
 }

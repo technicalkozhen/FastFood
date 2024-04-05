@@ -21,6 +21,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('deleteProductToTable/{id}' , [publicController::class ,'deleteProductToTable'])->name('deleteProductToTable');
     Route::get('increaceNumberQuantity/{id}' , [publicController::class ,'increaceNumberQuantity'])->name('increaceNumberQuantity');
     Route::get('decreaceNumberQuantity/{id}' , [publicController::class ,'decreaceNumberQuantity'])->name('decreaceNumberQuantity');
+    Route::get('invoice' , [publicController::class ,'invoice'])->name('invoice');
+
+
 
 
 

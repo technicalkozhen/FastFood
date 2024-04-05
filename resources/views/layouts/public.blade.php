@@ -8,7 +8,7 @@
 <body dir="rtl">
     <div class="flex items-center justify-between bg-blue-300 p-3">
         <div class="space-x-5 rtl:space-x-reverse flex items-center justify-center">
-            <a href="" class="bg-white p-1 rounded pb-2">تۆمارکردن</a>
+            <a href="{{route('invoice')}}" class="bg-white p-1 rounded pb-2">تۆمارکردن</a>
             <a href="">چاپکردن</a>
             <a href="">سڕینەوەی پسوڵە</a>
             <a href="">ڕاپۆرتی ئەمڕۆ</a>
