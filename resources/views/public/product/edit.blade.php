@@ -51,10 +51,34 @@
         <button class="rounded bg-blue-400 p-2 mr-12 m-2 text-white font-bold">نوێ کردنەوە</button>
      </form>
 
-     <form action="{{route('product.destroy',['product'=>$product->id])}}" method="post">
+     <form id="form_alert" action="{{route('product.destroy',['product'=>$product->id])}}" method="post">
         @csrf
         @method('DELETE')
-        <button class="rounded bg-red-400 p-2 mr-12 m-2 text-white font-bold">سڕینەوە</button>
+        <button type="button" onclick="alert()"  class="rounded bg-red-400 p-2 mr-12 m-2 text-white font-bold">سڕینەوە</button>
     </form>
 </div>
+
+<script>
+    let alert=()=>{
+    Swal.fire({
+    title: 'دڵنیایت لە سڕینەوە ؟',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'بەڵێ',
+    cancelButtonText: 'نەخێر'
+    }).then((result) => {
+    if (result.isConfirmed) {
+        Swal.fire(
+        'سڕایەوە',
+        'بەسەرکەوتووی سڕایەوە',
+        'success'
+        )
+
+        document.getElementById('form_alert').submit();
+    }
+    })
+            }
+</script>
 @endsection

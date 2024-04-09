@@ -2,8 +2,22 @@
 
 @section('content')
       
-      <div class="flex justify-between">
-        <div class="basis-6/12 grid grid-cols-4 gap-2 m-2">
+      <div class="flex justify-between relative">
+        <div class="basis-6/12 grid grid-cols-4 gap-2 m-2 relative">
+            <div class="absolute w-6/12 h-96 right-60 top-24 bg-gray-100 rounded p-3">
+                <div class="flex items-center justify-center mb-5 text-2xl">
+                    Great Fastfood
+                </div>
+                <div class="flex items-center w-10/12 space-x-5 rtl:space-x-reverse">
+                    <p class="">ژمارەی پسوڵە</p>
+                    <p class="border-2 border-black">43</p>
+                </div>
+                <div class="flex items-center w-10/12 space-x-5 rtl:space-x-reverse">
+                    <p class="">بەکارهێنەر</p>
+                    <p class="border-2 border-black">{{auth()->user()->name}}</p>
+                </div>
+                
+            </div>
             @foreach ($product as $pro)
                 <a href="{{route('addProductToTable',["id"=>$pro->id])}}">
                     <div class="border-2 text-center p-1">

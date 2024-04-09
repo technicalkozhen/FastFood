@@ -6,6 +6,7 @@ use App\Models\food_invoice;
 use App\Models\invoice;
 use App\Models\product;
 use App\Models\table_product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,6 +74,20 @@ class publicController extends Controller
         
         table_product::query()->delete();
         return redirect()->back();
+    }
+    public function invoice_today(){
+        $data=invoice::whereDay('created_at',today())->with('user')->get();
+        $t_price=0;
+        $n_invoice=0;
+        foreach($data as $val){
+            $t_price=$t_price+$val->total_price;
+            $n_invoice=$n_invoice+1;
+        }
+        return view('public.invoice.invoice_today',compact('data','t_price','n_invoice'));
+    }
+    public function showProduct($id){
+        $product=food_invoice::where('invoice_id',$id)->with('products')->latest()->paginate(10);
+        return view('public.invoice.showProductInvoice',compact('product'));
     }
 }
 

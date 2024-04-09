@@ -22,6 +22,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('increaceNumberQuantity/{id}' , [publicController::class ,'increaceNumberQuantity'])->name('increaceNumberQuantity');
     Route::get('decreaceNumberQuantity/{id}' , [publicController::class ,'decreaceNumberQuantity'])->name('decreaceNumberQuantity');
     Route::get('invoice' , [publicController::class ,'invoice'])->name('invoice');
+    Route::get('invoice_today' , [publicController::class ,'invoice_today'])->name('invoice_today');
+    Route::get('showProduct/{id}' , [publicController::class ,'showProduct'])->name('showProduct');
+
+
 
 
 
