@@ -26,7 +26,7 @@
             @foreach ($product as $pro)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$pro->products->name}}
+                        {{$pro->products ?->name}}
                     </th>
                     <td class="px-6 py-4">
                         
@@ -39,7 +39,7 @@
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex items-center justify-center">
-                            <img src="{{asset('products/'.$pro->products->image.'')}}" class="rounded h-12 w-12">
+                            <img src="{{asset('products/'.$pro->products ?->image.'')}}" class="rounded h-12 w-12">
                         </div>
                     </td>
                 </tr>   

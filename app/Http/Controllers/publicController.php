@@ -76,7 +76,7 @@ class publicController extends Controller
         return redirect()->back();
     }
     public function invoice_today(){
-        $data=invoice::whereDay('created_at',today())->with('user')->get();
+        $data=invoice::whereDay('created_at',today())->with('user')->latest()->get();
         $t_price=0;
         $n_invoice=0;
         foreach($data as $val){
@@ -85,9 +85,24 @@ class publicController extends Controller
         }
         return view('public.invoice.invoice_today',compact('data','t_price','n_invoice'));
     }
-    public function showProduct($id){
+    public function showProductInvoice($id){
         $product=food_invoice::where('invoice_id',$id)->with('products')->latest()->paginate(10);
         return view('public.invoice.showProductInvoice',compact('product'));
+    }
+    public function showInvoices(){
+        $invoice=invoice::with('user')->with('food_invoice')->latest()->paginate(10);
+        $t_price=0;
+        $n_invoice=0;
+        foreach($invoice as $val){
+            $t_price=$t_price+$val->total_price;
+            $n_invoice=$n_invoice+1;
+        }
+        return view('public.invoice.index',compact('invoice','t_price','n_invoice'));
+    }
+    public function deleteInvoice($id){
+        invoice::findOrFail($id)->delete();
+        return redirect()->back();
+        
     }
 }
 

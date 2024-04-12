@@ -22,26 +22,34 @@
                 <th scope="col" class="px-6 py-3 ">
                     کۆی گشتی
                 </th>
+                <th scope="col" class="px-6 py-3 ">
+                    کردارەکان 
+                </th>
                
         </thead>
         <tbody class="text-center">
-            @foreach ($data as $datas)
+            @foreach ($invoice as $invoices)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$datas->id}}
+                        {{$invoices->id}}
                     </th>
                     <td class="px-6 py-4">
-                        {{$datas->user->name}}
+                        {{$invoices->user->name}}
                     </td>
                     <td class="px-6 py-4">
-                        {{$datas->created_at->diffForHumans()}}
+                        {{$invoices->created_at->format('Y-m-d')}}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{route('showProductInvoice',['id'=>$datas->id])}}"><i class="fa-solid fa-eye text-xl"></i></a>
+                        <a href="{{route('showProductInvoice',['id'=>$invoices->id])}}"><i class="fa-solid fa-eye text-xl"></i></a>
                     </td>
                     <td class="px-6 py-4">
-                        {{$datas->total_price}}
+                        {{$invoices->total_price}}
                     </td>
+                    <th scope="col" class="px-6 py-3 ">
+                        <form id="form_alert" action="{{route('deleteInvoice',['id'=>$invoices->id])}}" method="get">
+                            <button type="button" onclick="alert()"><i class="fa-solid fa-trash text-red-500 text-xl"></i></button>
+                        </form>
+                    </th>
                 </tr>   
             @endforeach
         </tbody>
@@ -58,6 +66,28 @@
     </div>
 </div>
 
+<script>
+    let alert=()=>{
+    Swal.fire({
+    title: 'دڵنیایت لە سڕینەوە ؟',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'بەڵێ',
+    cancelButtonText: 'نەخێر'
+    }).then((result) => {
+    if (result.isConfirmed) {
+        Swal.fire(
+        'سڕایەوە',
+        'بەسەرکەوتووی سڕایەوە',
+        'success'
+        )
+        document.getElementById('form_alert').submit();
+    }
+    })
+            }
+</script>
 
 
 @endsection

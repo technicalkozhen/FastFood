@@ -11,7 +11,7 @@
         <div class="space-x-5 rtl:space-x-reverse flex items-center justify-center">
             <a href="{{route('invoice')}}" class="bg-white p-1 rounded pb-2">تۆمارکردن</a>
             <a href="">چاپکردن</a>
-            <a href="">سڕینەوەی پسوڵە</a>
+            <a href="{{route('showInvoices')}}">پسوڵەکان</a>
             <a href="{{route('invoice_today')}}">ڕاپۆرتی ئەمڕۆ</a>
             <a href="{{route('product.index')}}">لیستی موادەکان</a>
             <a href="">باقی دانەوە</a>
